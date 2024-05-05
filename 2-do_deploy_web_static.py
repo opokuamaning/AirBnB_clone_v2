@@ -9,6 +9,7 @@ Usage:
 """
 from fabric.api import env, put, run
 import os.path
+from paramiko import *
 env.hosts = ['35.229.54.225', '35.231.225.251']
 
 
