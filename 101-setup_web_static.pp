@@ -1,4 +1,5 @@
 # Script that configures Nginx server with some folders and files
+
 exec {'update':
   provider => shell,
   command  => 'sudo apt-get -y update',
@@ -50,6 +51,7 @@ exec {'put location':
 exec {'restart Nginx':
   provider => shell,
   command  => 'sudo service nginx restart',
+  before   => File['/data/']
 }
 
 file {'/data/':
@@ -58,4 +60,3 @@ file {'/data/':
   group   => 'ubuntu',
   recurse => true,
 }
-
